@@ -4,11 +4,13 @@ const { getAirBean } = require('../Services/airBeanService');
 exports.list = async (req, res, next) =>{
     const result = [];
        try {
+        console.log(req.user);
+        
         const dataJazz = await getAirJazz();
         const dataMoon = await getAirMoon();
         const dataBean = await getAirBean();
            if(dataJazz !== []){
-                await dataJazz.forEach(data=>{
+                dataJazz.forEach(data=>{
                     result.push(data);
                 });
             }
@@ -16,7 +18,7 @@ exports.list = async (req, res, next) =>{
                 next();
             }
             if(dataMoon !== []){
-                await dataMoon.forEach(data=>{
+                dataMoon.forEach(data=>{
                     result.push(data);
                 });
             }
@@ -24,7 +26,7 @@ exports.list = async (req, res, next) =>{
                 next();
             }
             if(dataBean !== []){
-                await dataBean.forEach(data=>{
+                dataBean.forEach(data=>{
                     result.push(data);
                 });
             }

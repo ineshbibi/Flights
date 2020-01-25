@@ -1,10 +1,12 @@
 const User = require('../../Models/user');
-const bcrypt = require('bcrypt-nodejs');
-exports.createUser = async(user)=>{
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
+exports.createUser = async({email , password})=>{
     try {
-        const userToAdd = new User(user);
-        await userToAdd.save();
-        return userToAdd;
+        const hashed = await bcrypt.hashSync(password,saltRounds)
+         const user = new User ({email,password: hashed});
+         const userToAdd =  await user.save();
+         return userToAdd;
     } catch(error) {
         console.log(error);
     }
@@ -13,11 +15,15 @@ exports.createUser = async(user)=>{
 
 exports.findUser = async(user)=>{
     try {
-        const userToFind = await User.findOne({
-            email: user.email, 
-            password: user.password
-        }) ;
-        return userToFind;
+        const userToFind = await User.findOne({email: user.email});
+        console.log(userToFind);
+        if(!userToFind){
+            return null;
+        }
+        if(bcrypt.compareSync(user.password, userToFind.password)){
+            return userToFind;
+        }
+        else return null;
     } catch(error) {
         console.log(error);
     }
