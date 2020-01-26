@@ -1,16 +1,19 @@
 const axios = require('axios');
+require('dotenv').config();
 exports.getAirJazz = async() => {
-    const url ='https://my.api.mockaroo.com/air-jazz/flights?key=dd764f40';
+    const url =process.env.API_URL+'/air-jazz/flights?key='+process.env.AIR_KEY;
     try {
       const resultat = [];
+      console.log(process.env.AIR_JAZZ_KEY);
        const flights = await axios.get(url);
-       if(flights.status !== 501){
+       
+       if(flights.status === 200){
          flights.data.forEach(flight => {
             resultat.push({
-             "provider": "AIR_JAZZ",
-             "price": flight.price,
-             "departure_time": flight.dtime,
-             "arrival_time": flight.atime  
+             'provider': 'AIR_JAZZ',
+             'price': flight.price,
+             'departure_time': flight.dtime,
+             'arrival_time': flight.atime  
             });      
          });   
       }

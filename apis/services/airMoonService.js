@@ -1,16 +1,17 @@
 const axios = require('axios');
+require('dotenv').config();
 exports.getAirMoon = async() => {
-    const url ='https://my.api.mockaroo.com/air-moon/flights?key=dd764f40';
+    const url =process.env.API_URL+'/air-moon/flights?key='+process.env.AIR_KEY;
     try {
     const resultat = [];
        const flights = await axios.get(url);
-       if(flights.status !== 501){
+       if(flights.status ===200){
         flights.data.forEach(flight => {
            resultat.push({
-            "provider": "AIR_MOON",
-            "price": flight.price,
-            "departure_time": flight.departure_time,
-            "arrival_time": flight.arrival_time  
+            'provider': 'AIR_MOON',
+            'price': flight.price,
+            'departure_time': flight.departure_time,
+            'arrival_time': flight.arrival_time  
            });      
         });   
      }
