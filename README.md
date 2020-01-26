@@ -24,6 +24,15 @@ $ cd Flights
 $ npm install
 $ nodemon Flights / npm start
 ```
+
+### Api
+
+* Register: POST - http://localhost:3000/api/register 
+* Login: POST - http://localhost:3000/api/login 
+* Flights: GET http://localhost:3000/api/flights
+            {header : Bearer <token> }
+ 
+ 
 License
 ----
 
