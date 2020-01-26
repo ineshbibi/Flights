@@ -43,12 +43,12 @@ exports.findUserByMail = async (email) => {
 
 // increment rate by one
 exports.UpdateRate = async (user) => {
-    try { console.log('haha');
+    try {
     user.rate ++;
     const userToUpdate = await user.save();
     return userToUpdate;
-        }
-        catch (error) {
-            console.log(error);
-        }
+    }
+    catch (error) {
+        console.log(error);
+    }
 }

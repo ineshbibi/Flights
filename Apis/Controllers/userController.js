@@ -6,7 +6,6 @@ exports.create = async (req, res, next) => {
 try {
     
     const user = await createUser(req.body);
-    console.log(user);
     res.status(200);
     res.json(user)
 
