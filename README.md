@@ -21,7 +21,8 @@ Install the dependencies and devDependencies and start the server.
 
 ```sh
 $ cd Flights
-$ npm install
+$ Install dependencies: npm install
+$ Set environment variables: cp .env.example .env
 $ nodemon Flights / npm start
 ```
 
