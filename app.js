@@ -3,8 +3,8 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-const routes = require('./Apis/routes');
-const fb = require('./Models/db');
+const routes = require('./apis/routes');
+const db = require('./config/db');
 var app = express();
 
 // view engine setup

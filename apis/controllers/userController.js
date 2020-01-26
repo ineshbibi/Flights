@@ -1,4 +1,4 @@
-const { createUser , findUser} = require('../Services/userService');
+const { createUser , findUser} = require('../services/userService');
 const jwt = require('jsonwebtoken');
 
 //Create a user

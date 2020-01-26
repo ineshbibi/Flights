@@ -1,7 +1,7 @@
-const { getAirJazz } = require('../Services/airJazzService');
-const { getAirMoon } = require('../Services/airMoonService');
-const { getAirBean } = require('../Services/airBeanService');
-const { findUserByMail , UpdateRate } = require('../Services/userService');
+const { getAirJazz } = require('../services/airJazzService');
+const { getAirMoon } = require('../services/airMoonService');
+const { getAirBean } = require('../services/airBeanService');
+const { findUserByMail , UpdateRate } = require('../services/userService');
 
 /*
 *

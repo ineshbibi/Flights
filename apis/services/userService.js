@@ -1,4 +1,4 @@
-const User = require('../../Models/user');
+const User = require('../../mgitodels/user');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 exports.createUser = async({email , password})=>{
