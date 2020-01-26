@@ -14,7 +14,7 @@ exports.list = async (req, res, next) =>{
        try {
        const user = await findUserByMail(req.user);
        const { rate } = user;
-    if ( rate < 30) {
+    if ( rate < 3) {
         UpdateRate(user);
         const dataJazz = await getAirJazz();
         const dataMoon = await getAirMoon();
