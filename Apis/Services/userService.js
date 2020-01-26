@@ -16,7 +16,6 @@ exports.createUser = async({email , password})=>{
 exports.findUser = async(user)=>{
     try {
         const userToFind = await User.findOne({email: user.email});
-        console.log(userToFind);
         if(!userToFind){
             return null;
         }
@@ -28,3 +27,28 @@ exports.findUser = async(user)=>{
         console.log(error);
     }
 };
+
+exports.findUserByMail = async (email) => {
+    try {
+        const user = await User.findOne({email}) ;
+        if(!user){
+            return null;
+        }
+        return user;
+    }
+    catch (error) {
+        console.log(error);
+    }
+}
+
+// increment rate by one
+exports.UpdateRate = async (user) => {
+    try { console.log('haha');
+    user.rate ++;
+    const userToUpdate = await user.save();
+    return userToUpdate;
+        }
+        catch (error) {
+            console.log(error);
+        }
+}

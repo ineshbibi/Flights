@@ -4,7 +4,9 @@ const jwt = require('jsonwebtoken');
 //Create a user
 exports.create = async (req, res, next) => {
 try {
+    
     const user = await createUser(req.body);
+    console.log(user);
     res.status(200);
     res.json(user)
 
@@ -15,7 +17,7 @@ catch (error) {
 
 }
 
-//Login so you will get your token
+//Login + get your token
 exports.login = async (req, res, next) => {
     try {
         const user = await findUser(req.body);
@@ -33,6 +35,8 @@ exports.login = async (req, res, next) => {
 
     }
     catch (error) {
-        next(error)
+        next(error);
     }
 }
+
+
