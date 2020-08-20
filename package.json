@@ -7,7 +7,7 @@
   },
   "dependencies": {
     "axios": "^0.19.2",
-    "bcrypt": "^3.0.7",
+    "bcrypt": "^5.0.0",
     "bcrypt-nodejs": "0.0.3",
     "convert-csv-to-json": "0.0.15",
     "cookie-parser": "~1.4.4",
